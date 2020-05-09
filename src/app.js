@@ -66,7 +66,9 @@ app.get('/weather' , (req,res) => {
                 else{
                     res.send({
                         address: place_name,
-                        weather : forecastData
+                        weather : 'Today in '+forecastData.location.name+' the weather is '+forecastData.current.weather_descriptions[0]+' and there are '+forecastData.current.temperature+' degrees Celsius. It feels like '+forecastData.current.feelslike+' degrees.',
+                        addInfo:  'The humidity is '+forecastData.current.humidity+'% and the pressure is '+forecastData.current.pressure,
+                        icon: forecastData.current.weather_icons[0]
                     })
                 }
             })
